@@ -5,7 +5,7 @@ We supplied a working example that can be used to instantiate a developement env
 
 ## Required dependencies
 
-You must install the following on your system.
+You must install the following on your host system.
  
  * vagrant
  * Virtualbox
