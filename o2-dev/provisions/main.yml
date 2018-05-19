@@ -1,0 +1,6 @@
+---
+- hosts: o2Build
+  roles: 
+    - ansible-sdkman
+    - o2-build
+...

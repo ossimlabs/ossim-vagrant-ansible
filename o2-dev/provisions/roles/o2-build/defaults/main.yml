@@ -1,0 +1,6 @@
+---
+destination: "/home/vagrant"
+ossim_yum: "https://s3.amazonaws.com/o2-rpms/CentOS/7/dev/x86_64"
+git_public_url: "https://github.com/ossimlabs" 
+pgdata: "/var/lib/pgsql/data/"
+...

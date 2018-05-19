@@ -1,0 +1,38 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure(2) do |config|
+  config.vm.box = "centos/7"
+
+  # Create a private network, which allows host-only access to the machine
+  # using a specific IP.
+
+  # Create a public network, which generally matched to bridged network.
+  # Bridged networks make the machine appear as another physical device on
+  # your network.
+  # config.vm.network "public_network"
+
+  config.vm.synced_folder ".", "/vagrant", type: "nfs"
+  if File.directory?(File.expand_path("/data"))
+    config.vm.synced_folder "/data", "/data", type: "nfs"
+  end
+  if ENV['MSP_HOME']
+    if File.directory?(File.expand_path(ENV['MSP_HOME']))
+      config.vm.synced_folder ENV['MSP_HOME'], "/msp", type: "nfs"
+    end
+  end
+  config.vm.define "o2Build" do |o2Build|
+    o2Build.vm.box = "centos/7"
+    o2Build.vm.provider "virtualbox" do |vb|
+      vb.customize ["modifyvm", :id, "--memory", "4096"]
+      vb.customize ["modifyvm", :id, "--name", "o2-build"]
+    end
+    o2Build.vm.network "private_network", ip: "192.168.2.100"
+    o2Build.vm.hostname = "o2-build.local"
+    o2Build.ssh.forward_x11 = true
+    o2Build.vm.provision "ansible" do |ansible|
+      ansible.playbook = "provisions/main.yml"
+    end
+  end
+
+end

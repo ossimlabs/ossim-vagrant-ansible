@@ -1,0 +1,38 @@
+---
+- name: App | Cloning repos + submodules
+  git: repo={{ git_public_url }}/{{ item }}.git
+        dest={{ destination }}/{{ item }}
+  with_items:
+    - ossim
+    - ossim-plugins
+    - ossim-video
+    - ossim-oms
+    - ossim-gui
+    - ossim-planet
+    - ossim-wms
+    - omar-avro
+    - omar-basemap
+    - omar-common
+    - omar-core
+    - omar-database
+    - omar-docs
+    - omar-download
+    - omar-geoscript
+    - omar-hibernate-spatial
+    - omar-mensa
+    - omar-oms
+    - omar-openlayers
+    - omar-opir
+    - omar-raster
+    - omar-services
+    - omar-sqs-stager
+    - omar-superoverlay
+    - omar-stager
+    - omar-ui
+    - omar-video
+    - omar-web-proxy
+    - omar-wfs
+    - omar-wms
+    - omar-wmts
+    - tlv
+...
