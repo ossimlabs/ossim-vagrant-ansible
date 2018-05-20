@@ -16,7 +16,7 @@
   - db
   - dbslave
   - restartdb
-  service: name=postgresql state=started
+  service: name=postgresql state=started enabled=yes
   when: ansible_os_family == 'RedHat'
 
 ...
