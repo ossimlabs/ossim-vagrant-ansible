@@ -27,6 +27,15 @@ You should see the import of the Centos/7 box and the startup of the OS and then
 
 Groovy, grails, and gradle will be installed by the ansible-sdkman role.
 
+Once the vagrant box is configured for the first time you will need to run the commands to configure a dev database and a prod database:
+
+```
+psql -c 'create database "omardb-1.9.0-dev"'
+psql -c 'create extension postgis' -d omardb-1.9.0-dev
+psql -c 'create database "omardb-1.9.0-prod"'
+psql -c 'create extension postgis' -d omardb-1.9.0-prod
+```
+
 Once all packages are installed you should be able to do:
 
 ```
