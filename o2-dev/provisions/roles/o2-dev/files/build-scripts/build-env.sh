@@ -1,4 +1,5 @@
 #!/bin/bash
+export PGUSER=postgres
 export OSSIM_DEV_HOME=~
 export OSSIM_DATA=/data
 export OSSIM_VERSION=1.9.0
