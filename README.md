@@ -33,10 +33,11 @@ Once all packages are installed you should be able to do:
 vagrant ssh
 ./build-ossim.sh
 ```
-Once finished:
+Once finished, for the first time through we will make sure that the local.properties is there for the joms build:
 
 ```
 cd ossim-oms/joms
+cp local.properties.template local.properties 
 ant clean mvn-install
 ```
 
