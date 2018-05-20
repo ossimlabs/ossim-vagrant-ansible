@@ -30,7 +30,7 @@ vagrant up
 vagrant box add https://cloud.centos.org/centos/7/vagrant/x86_64/images/CentOS-7-x86_64-Vagrant-1804_02.VirtualBox.box --name rerun/7
 ```
 
-With a successful execution of the **vagrant up** command you should see the import of the Centos/7 box and the startup of the OS and then the ansible configuration of all the packages.  sdkman will be installed with using the ansible-sdkman role.  We imported the code found here: [https://github.com/Comcast/ansible-sdkman.git](https://github.com/Comcast/ansible-sdkman.git) into our project and will adhere to its licensing.  All other code will adhere to the MIT License and is free to use and modify.
+With a successful execution of the **vagrant up** command you should see the import of the Centos/7 box and the startup of the OS and then the ansible configuration of all the packages.  sdkman will be installed via using the ansible-sdkman role.  We imported the code found here: [https://github.com/Comcast/ansible-sdkman.git](https://github.com/Comcast/ansible-sdkman.git) into our project and will adhere to its licensing.  All other code will adhere to the MIT License and is free to use and modify.
 
 Groovy, grails, and gradle will be installed by the ansible-sdkman role.
 
@@ -49,6 +49,7 @@ Once all packages are installed you should be able to do:
 vagrant ssh
 ./build-ossim.sh
 ```
+
 Once finished, for the first time through we will make sure that the local.properties is there for the joms build:
 
 ```
