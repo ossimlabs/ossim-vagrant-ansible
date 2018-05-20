@@ -24,10 +24,11 @@ cd ossim-vagrant-ansible/o2-dev
 vagrant up
 ```
 
-**WARNING** At the time of writing this document we had a problem with a link on the cloud serving up the boxes.  If you get an error that states some kind of 404 then you can download the centos/7 box manually and then rerun the **vagrant up** command.  Only do this if the vagrant up fails with a 404.  If the box does not exist you can replace it with the latest Centos-7 box provided by browsing to the location [https://cloud.centos.org/centos/7/vagrant/x86_64/images/](https://cloud.centos.org/centos/7/vagrant/x86_64/images/).  At the time of writing this document the 1804_02 box was the latest:
+**WARNING** At the time of writing this document we had a problem with a link on the cloud serving up the boxes.  If you get an error that states some kind of 404 then you can download the centos/7 box manually and then rerun the **vagrant up** command.  Only do this if the vagrant up fails with a 404.  You can replace it with a later version that does not have a broken link:
 
 ```
-vagrant box add https://cloud.centos.org/centos/7/vagrant/x86_64/images/CentOS-7-x86_64-Vagrant-1804_02.VirtualBox.box --name rerun/7
+vagrant box add --box-version 1803.01 centos/7
+select virtual box number and then hit return and then it will start downloading
 ```
 
 With a successful execution of the **vagrant up** command you should see the import of the Centos/7 box and the startup of the OS and then the ansible configuration of all the packages.  sdkman will be installed via using the ansible-sdkman role.  We imported the code found here: [https://github.com/Comcast/ansible-sdkman.git](https://github.com/Comcast/ansible-sdkman.git) into our project and will adhere to its licensing.  All other code will adhere to the MIT License and is free to use and modify.
