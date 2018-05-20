@@ -21,16 +21,16 @@ Vagrant.configure(2) do |config|
       config.vm.synced_folder ENV['MSP_HOME'], "/msp", type: "nfs"
     end
   end
-  config.vm.define "o2Build" do |o2Build|
-    o2Build.vm.box = "centos/7"
-    o2Build.vm.provider "virtualbox" do |vb|
+  config.vm.define "o2Dev" do |o2Dev|
+    o2Dev.vm.box = "centos/7"
+    o2Dev.vm.provider "virtualbox" do |vb|
       vb.customize ["modifyvm", :id, "--memory", "4096"]
-      vb.customize ["modifyvm", :id, "--name", "o2-build"]
+      vb.customize ["modifyvm", :id, "--name", "o2-dev"]
     end
-    o2Build.vm.network "private_network", ip: "192.168.2.100"
-    o2Build.vm.hostname = "o2-build.local"
-    o2Build.ssh.forward_x11 = true
-    o2Build.vm.provision "ansible" do |ansible|
+    o2Dev.vm.network "private_network", ip: "192.168.2.100"
+    o2Dev.vm.hostname = "o2-build.local"
+    o2Dev.ssh.forward_x11 = true
+    o2Dev.vm.provision "ansible" do |ansible|
       ansible.playbook = "provisions/main.yml"
     end
   end
