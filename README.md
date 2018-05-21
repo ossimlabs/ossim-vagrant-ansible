@@ -5,11 +5,11 @@ We supplied a working example that can be used to instantiate a developement env
 
 ## Required dependencies
 
-You must install the following on your host system.
+You must install the following on your host system. At the time of writing this document the version are listed next to the packages.
  
- * vagrant
- * Virtualbox
- * ansible
+ * vagrant (2.x)
+ * Virtualbox (5.2.X)
+ * ansible (2.5.3)
 
 These are available as packages on most systems.  
 
