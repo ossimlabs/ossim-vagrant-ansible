@@ -60,5 +60,5 @@ ant clean mvn-install
 ```
 
 
-Note:  when you **vagrant ssh** into the machine it will automatically source the build environment and will have all necessary variables defined such as the O2_DEV_HOME, ARTIFACTORY_URL, OSSIM_INSTALL_PREFIX, ... etc for building the ossim and the OMAR distributions. 
+Note:  when you **vagrant ssh** into the machine it will automatically source the build environment and will have all necessary variables defined such as the O2_DEV_HOME, REPOSITORY_MANAGER_URL, OSSIM_INSTALL_PREFIX, ... etc for building the ossim and the OMAR distributions. 
 
